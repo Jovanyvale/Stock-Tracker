@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import { getStocks } from '../services/finnhub.service';
+import { getStocks } from '../services/yahoo.service';
 
 export async function listStocks(_req: Request, res: Response) {
     try {
