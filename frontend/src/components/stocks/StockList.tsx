@@ -27,34 +27,33 @@ export default function StocksList() {
 
     return (
         <>
-            <div className="flex flex-col gap-3">
-                {/* Buscador */}
-                <StockSearch value={query} onChange={setQuery} />
+            <section className="rounded-lg border border-slate-200 bg-white/95 p-5 shadow-[0_14px_34px_rgba(15,23,42,0.05)] sm:p-6 lg:p-7">
+                <div className="flex flex-col gap-5">
+                    <StockSearch value={query} onChange={setQuery} />
 
-                {/* Contador */}
-                {stocks && stocks.length > 0 && (
-                    <p className="text-xs text-slate-400 px-1">
-                        {filtered.length} de {stocks.length} empresas
-                    </p>
-                )}
+                    {stocks && stocks.length > 0 && (
+                        <div className="flex flex-col gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+                            <span className="font-semibold text-slate-800">{filtered.length} de {stocks.length} empresas</span>
+                            <span>Precios en USD</span>
+                        </div>
+                    )}
 
-                {/* Lista */}
-                {loading || error || isEmpty ? (
-                    <ListState loading={loading} error={error} empty={isEmpty} />
-                ) : (
-                    <div className="flex flex-col gap-2">
-                        {filtered.map((stock) => (
-                            <StockCard
-                                key={stock.symbol}
-                                stock={stock}
-                                onClick={setSelected}
-                            />
-                        ))}
-                    </div>
-                )}
-            </div>
+                    {loading || error || isEmpty ? (
+                        <ListState loading={loading} error={error} empty={isEmpty} />
+                    ) : (
+                        <div className="grid gap-4 lg:grid-cols-2">
+                            {filtered.map((stock) => (
+                                <StockCard
+                                    key={stock.symbol}
+                                    stock={stock}
+                                    onClick={setSelected}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </section>
 
-            {/* Modal de detalles */}
             {selected && (
                 <StockModal stock={selected} onClose={() => setSelected(null)} />
             )}

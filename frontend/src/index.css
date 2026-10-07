@@ -8,8 +8,22 @@
 
 body {
     font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-    background-color: #f8fafc;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
     color: #0f172a;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    background: #ccfbf1;
+    color: #0f172a;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
 }

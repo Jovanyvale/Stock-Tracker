@@ -13,24 +13,19 @@ type Props = {
 
 export default function Layout({ active, onChange, title, children }: Props) {
     return (
-        <div className="min-h-screen bg-slate-50 flex">
-            {/* Sidebar (desktop) */}
+        <div className="min-h-screen bg-transparent flex">
             <Sidebar active={active} onChange={onChange} />
 
-            {/* Main */}
             <div className="flex-1 flex flex-col min-w-0">
-                {/* Header (móvil) */}
                 <Header title={title} />
 
-                {/* Contenido */}
-                <main className="flex-1 p-4 sm:p-6 lg:p-8 pb-24 lg:pb-8">
-                    <div className="max-w-2xl mx-auto">
+                <main className="flex-1 px-5 py-6 pb-28 sm:px-8 lg:px-10 xl:px-12 lg:py-8 lg:pb-10">
+                    <div className="mx-auto w-full max-w-6xl">
                         {children}
                     </div>
                 </main>
             </div>
 
-            {/* Bottom nav (móvil) */}
             <BottomNav active={active} onChange={onChange} />
         </div>
     );

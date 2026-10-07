@@ -10,17 +10,17 @@ export default function StockSearch({ value, onChange }: Props) {
                 type="text"
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
-                placeholder="Buscar por nombre o símbolo…"
-                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none transition-colors"
+                placeholder="Buscar por nombre o simbolo..."
+                className="w-full rounded-lg border border-slate-200 bg-white py-4 pl-14 pr-12 text-sm text-slate-900 shadow-[0_10px_24px_rgba(15,23,42,0.04)] outline-none transition-colors placeholder:text-slate-400 focus:border-teal-400 focus:ring-4 focus:ring-teal-100"
             />
             {value && (
                 <button
                     type="button"
                     onClick={() => onChange('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors text-sm"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 rounded-lg px-2.5 py-1.5 text-sm text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-700"
                     aria-label="Limpiar"
                 >
-                    ✕
+                    x
                 </button>
             )}
         </div>
