@@ -9,3 +9,5 @@ export type Stock = {
 export type ApiResponse<T> = {
     data: T;
 };
+
+export type TabId = 'market' | 'simulator';
