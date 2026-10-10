@@ -1,4 +1,6 @@
 import type { TabId } from '../../types';
+import icon1 from "../../assets/img/1.webp";
+import icon2 from "../../assets/img/2.webp";
 
 type Props = {
     active: TabId;
@@ -6,8 +8,8 @@ type Props = {
 };
 
 const ITEMS: { id: TabId; label: string; icon: string }[] = [
-    { id: 'market', label: 'Mercado', icon: 'M' },
-    { id: 'simulator', label: 'Simulador', icon: '$' },
+    { id: 'market', label: 'Mercado', icon: icon1 },
+    { id: 'simulator', label: 'Simulador', icon: icon2 },
 ];
 
 export default function Sidebar({ active, onChange }: Props) {
@@ -36,20 +38,14 @@ export default function Sidebar({ active, onChange }: Props) {
                                 : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
                                 }`}
                         >
-                            <span className={`flex h-9 w-9 items-center justify-center rounded-lg text-xs ${isActive ? 'bg-white/12 text-white ring-1 ring-white/15' : 'bg-white text-slate-500 ring-1 ring-slate-200'}`}>
-                                {item.icon}
-                            </span>
+                            <img src={item.icon} alt="" className='max-h-12' />
                             <span>{item.label}</span>
                         </button>
                     );
                 })}
             </nav>
 
-            <div className="mt-auto rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-wide text-teal-700">Resumen</p>
-                <p className="mt-2 text-sm font-semibold text-slate-900">Top 100 empresas</p>
-                <p className="mt-2 text-xs leading-5 text-slate-500">Datos de mercado organizados para consulta rapida.</p>
-            </div>
+
         </aside>
     );
 }

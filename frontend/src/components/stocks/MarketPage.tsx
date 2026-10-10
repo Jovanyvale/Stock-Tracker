@@ -1,4 +1,5 @@
 import StocksList from './StockList';
+import spLogo from "../../assets/img/sp500.webp";
 
 export default function MarketPage() {
     return (
@@ -7,7 +8,11 @@ export default function MarketPage() {
                 <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
                     <div>
                         <p className="text-xs font-semibold uppercase tracking-wide text-teal-700">Mercado</p>
-                        <h2 className="mt-3 text-2xl font-bold text-slate-950 sm:text-3xl">Top 100</h2>
+                        <div className='flex gap-2'>
+                            <img src={spLogo} alt="S&P Logo" className='max-h-10 items-center rounded-sm' />
+                            <h2 className="mt-3 text-2xl font-bold text-slate-950 sm:text-3xl">Top 100</h2>
+                        </div>
+
                         <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
                             Precios actualizados de las empresas mas relevantes del mercado.
                         </p>
