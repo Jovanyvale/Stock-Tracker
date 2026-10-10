@@ -12,15 +12,14 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] })
 
   ],
-  base: '/app/'
+  base: '/app/',
   build: {
     rollupOptions: {
       output: {
-        // JS principal
         entryFileNames: "js/[name]-[hash].js",
-        // JS de chunks (code splitting)
+
         chunkFileNames: "js/[name]-[hash].js",
-        // Resto de assets: imágenes, CSS, etc.
+
         assetFileNames: (assetInfo) => {
           const fileName = assetInfo.names?.[0] ?? assetInfo.name ?? "";
           const ext = fileName.split(".").pop()?.toLowerCase() ?? "";
