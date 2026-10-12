@@ -1,21 +1,3 @@
-export type Stock = {
-    symbol: string;
-    name: string;
-    price: number;
-    change: number;
-    changePercent: number;
-};
-
-// Reservados para fases siguientes:
-export type Candle = {
-    time: number;
-    open: number;
-    high: number;
-    low: number;
-    close: number;
-    volume: number;
-};
-
 export type SimulationRange = '1w' | '1mo' | '3mo' | '6mo' | '1y' | '5y';
 
 export type SimulationRequest = {
@@ -25,8 +7,8 @@ export type SimulationRequest = {
 };
 
 export type SimulationResult = {
+    id: string;
     symbol: string;
-    name: string;
     amount: number;
     range: SimulationRange;
     startDate: string;
@@ -37,5 +19,5 @@ export type SimulationResult = {
     currentValue: number;
     profit: number;
     profitPercent: number;
-    candles: Candle[];
+    createdAt: string;
 };
