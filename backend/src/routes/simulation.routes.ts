@@ -1,6 +1,8 @@
 import { Router } from 'express';
-import { listStocks } from '../controllers/stocks.controller';
+import { create, list, remove } from '../controllers/simulation.controller';
 
-export const stocksRouter = Router();
+export const simulationRouter = Router();
 
-stocksRouter.get('/', listStocks);
+simulationRouter.post('/', create);
+simulationRouter.get('/', list);
+simulationRouter.delete('/:id', remove);

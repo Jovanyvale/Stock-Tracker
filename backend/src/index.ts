@@ -1,8 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import { env } from './config/env';
-import { prisma } from './config/prisma'; 
+import { prisma } from './config/prisma';
 import { stocksRouter } from './routes/stocks.routes';
+import { simulationRouter } from './routes/simulation.routes';
 
 const app = express();
 
@@ -42,6 +43,8 @@ app.get('/health/db', async (_req, res) => {
 });
 
 app.use('/api/stocks', stocksRouter);
+
+app.use('/api/simulations', simulationRouter);
 
 app.use((_req, res) => {
     res.status(404).json({ error: 'Ruta no encontrada' });
