@@ -3,16 +3,8 @@ y simular inversiones históricas.
 
 ---
 
-## 🛠️ Stack
 
-- **Frontend:** React + TypeScript + Vite + Tailwind CSS
-- **Backend:** Express + TypeScript
-- **Datos:** Yahoo Finance API
-- **Persistencia:** localStorage (futuro: base de datos)
-
----
-
-## 📁 Estructura
+##  Estructura
 Stock Tracker/
 ├── backend/ # API REST (Express + TS)
 ├── frontend/ # App React (Vite + TS + Tailwind)
@@ -21,7 +13,7 @@ Stock Tracker/
 
 ---
 
-## 🚀 Pasos seguidos
+##  Pasos seguidos
 
 ### 1. Setup del frontend
 - Proyecto creado con `npm create vite` (React + TS + ESLint)
@@ -72,7 +64,7 @@ POST /api/simulate → calcula inversión ficticia
 
 ---
 
-## ▶️ Cómo correr
+## Cómo correr
 
 ```bash
 # Terminal 1 — Backend
