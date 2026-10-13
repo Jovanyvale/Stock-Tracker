@@ -1,7 +1,14 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import type { Stock } from '../types';
 import { TTLCache } from '../utils/cache';
+
+type Stock = {
+    symbol: string;
+    name: string;
+    price: number;
+    change: number;
+    changePercent: number;
+};
 
 const BASE_URL = 'https://query1.finance.yahoo.com/v8/finance/chart';
 

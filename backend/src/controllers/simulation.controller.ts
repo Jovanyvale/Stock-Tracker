@@ -39,7 +39,10 @@ export async function list(_req: Request, res: Response) {
 
 export async function remove(req: Request, res: Response) {
     try {
-        const ok = await deleteSimulation(req.params.id);
+        const id = req.params.id;
+        if (typeof id !== 'string') return res.status(400).json({ error: 'Identificador inválido' });
+
+        const ok = await deleteSimulation(id);
         if (!ok) return res.status(404).json({ error: 'No encontrada' });
         res.json({ data: { deleted: true } });
     } catch (err) {

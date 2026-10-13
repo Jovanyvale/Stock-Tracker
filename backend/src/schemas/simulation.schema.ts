@@ -7,11 +7,3 @@ export const simulationSchema = z.object({
     range: z.enum(['1w', '1mo', '3mo', '6mo', '1y', '5y']),
 });
 
-// En el controller:
-const parsed = simulationSchema.safeParse(req.body);
-if (!parsed.success) {
-    return res.status(400).json({
-        error: 'Datos inválidos',
-        details: parsed.error.issues,
-    });
-}

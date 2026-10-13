@@ -18,10 +18,8 @@ app.get('/health/db', async (_req, res) => {
     try {
         const start = Date.now();
 
-        // SELECT 1: confirma que hay conexión
         await prisma.$queryRaw`SELECT 1`;
 
-        // Cuenta registros reales
         const total = await prisma.simulation.count();
 
         res.json({
