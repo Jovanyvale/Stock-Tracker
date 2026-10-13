@@ -27,6 +27,25 @@ export default function Layout({ active, onChange, title, children }: Props) {
             </div>
 
             <BottomNav active={active} onChange={onChange} />
+            <footer className="pt-6 mt-8 border-t border-slate-100 text-center">
+                <p className="text-xs text-slate-400">© 2025 Stock Tracker</p>
+                <div className="flex justify-center gap-2 mt-1 text-xs">
+                    <button
+                        onClick={() => onChange('legal')}
+                        className="text-slate-400 hover:text-blue-600 transition-colors"
+                    >
+                        Privacidad
+                    </button>
+                    <span className="text-slate-300">·</span>
+                    <button
+                        onClick={() => onChange('legal')}
+                        className="text-slate-400 hover:text-blue-600 transition-colors"
+                    >
+                        Términos
+                    </button>
+                </div>
+            </footer>
         </div>
+
     );
 }

@@ -10,7 +10,7 @@ export type ApiResponse<T> = {
     data: T;
 };
 
-export type TabId = 'market' | 'simulator';
+export type TabId = 'market' | 'simulator' | 'legal';
 
 export type SimulationRange = '1w' | '1mo' | '3mo' | '6mo' | '1y' | '5y';
 

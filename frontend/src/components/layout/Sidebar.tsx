@@ -7,9 +7,10 @@ type Props = {
     onChange: (tab: TabId) => void;
 };
 
-const ITEMS: { id: TabId; label: string; icon: string }[] = [
+const ITEMS: { id: TabId; label: string; icon: string; isEmoji?: boolean }[] = [
     { id: 'market', label: 'Mercado', icon: icon1 },
     { id: 'simulator', label: 'Simulador', icon: icon2 },
+    { id: 'legal', label: 'Legal', icon: '📄', isEmoji: true },
 ];
 
 export default function Sidebar({ active, onChange }: Props) {
@@ -25,7 +26,7 @@ export default function Sidebar({ active, onChange }: Props) {
                 </div>
             </div>
 
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-2 flex-1">
                 {ITEMS.map((item) => {
                     const isActive = active === item.id;
                     return (
@@ -38,14 +39,37 @@ export default function Sidebar({ active, onChange }: Props) {
                                 : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
                                 }`}
                         >
-                            <img src={item.icon} alt="" className='max-h-12' />
+                            {item.isEmoji
+                                ? <span className="text-lg">{item.icon}</span>
+                                : <img src={item.icon} alt="" className='max-h-12' />
+                            }
                             <span>{item.label}</span>
                         </button>
                     );
                 })}
             </nav>
 
-
+            <footer className="pt-4 mt-4 border-t border-slate-200">
+                <p className="text-xs text-slate-500">© 2025 Stock Tracker</p>
+                <p className="mt-1 text-xs text-slate-400">Uso personal y educativo</p>
+                <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-xs">
+                    <button
+                        type="button"
+                        onClick={() => onChange('legal')}
+                        className="text-slate-500 hover:text-slate-950 transition-colors"
+                    >
+                        Privacidad
+                    </button>
+                    <span className="text-slate-300">·</span>
+                    <button
+                        type="button"
+                        onClick={() => onChange('legal')}
+                        className="text-slate-500 hover:text-slate-950 transition-colors"
+                    >
+                        Términos
+                    </button>
+                </div>
+            </footer>
         </aside>
     );
 }
